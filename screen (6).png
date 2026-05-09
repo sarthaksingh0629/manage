@@ -1,0 +1,16 @@
+import http.server
+import socketserver
+
+PORT = 8000
+
+class Handler(http.server.SimpleHTTPRequestHandler):
+    pass
+
+# Ensure correct MIME type for JavaScript
+Handler.extensions_map['.js'] = 'application/javascript'
+Handler.extensions_map['.css'] = 'text/css'
+Handler.extensions_map['.html'] = 'text/html'
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving at http://localhost:{PORT}")
+    httpd.serve_forever()

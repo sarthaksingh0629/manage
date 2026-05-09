@@ -1,0 +1,231 @@
+window.PAGE_CONTENT = {
+    'live-monitor': `
+<div class="h-full relative map-bg h-[calc(100vh-4rem)]">
+    <div class="absolute inset-0 map-overlay"></div>
+    <div class="relative w-full h-full p-lg overflow-hidden">
+        <div class="absolute top-lg left-lg w-80 bg-surface/90 backdrop-blur-md rounded-xl border border-outline-variant p-md shadow-[0px_4px_12px_rgba(30,41,59,0.05)] z-20">
+            <h2 class="font-headline-md text-headline-md mb-md text-on-surface">Vital Signs</h2>
+            <div class="flex flex-col gap-md">
+                <div class="bg-surface-container-low rounded-lg p-md flex items-center justify-between">
+                    <div class="flex items-center gap-sm">
+                        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined">delete_outline</span></div>
+                        <div><p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Bins</p><p class="font-data-lg text-data-lg text-on-surface">1,248</p></div>
+                    </div>
+                    <span class="material-symbols-outlined text-outline-variant">trending_up</span>
+                </div>
+                <div class="bg-surface-container-low rounded-lg p-md flex items-center justify-between">
+                    <div class="flex items-center gap-sm">
+                        <div class="w-10 h-10 rounded-full bg-[#10b981]/20 flex items-center justify-center text-[#10b981]"><span class="material-symbols-outlined">health_and_safety</span></div>
+                        <div><p class="font-label-caps text-label-caps text-on-surface-variant uppercase">System Health</p><p class="font-data-lg text-data-lg text-on-surface">98%</p></div>
+                    </div>
+                    <span class="material-symbols-outlined text-[#10b981]">check_circle</span>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-[30%] left-[40%] flex flex-col items-center gap-xs z-10">
+            <div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center pulse-marker shadow-lg border-2 border-white"><span class="material-symbols-outlined text-[14px]">delete</span></div>
+            <div class="bg-surface px-2 py-1 rounded shadow-sm text-xs font-data-point text-on-surface border border-outline-variant">85%</div>
+        </div>
+        <div class="absolute top-[50%] left-[60%] flex flex-col items-center gap-xs z-10">
+            <div class="w-6 h-6 rounded-full bg-error text-white flex items-center justify-center pulse-marker shadow-lg border-2 border-white"><span class="material-symbols-outlined text-[14px]">warning</span></div>
+            <div class="bg-surface px-2 py-1 rounded shadow-sm text-xs font-data-point text-on-surface border border-outline-variant">99%</div>
+        </div>
+        <div class="absolute top-[65%] left-[25%] flex flex-col items-center gap-xs z-10">
+            <div class="w-6 h-6 rounded-full bg-[#10b981] text-white flex items-center justify-center shadow-lg border-2 border-white"><span class="material-symbols-outlined text-[14px]">check</span></div>
+            <div class="bg-surface px-2 py-1 rounded shadow-sm text-xs font-data-point text-on-surface border border-outline-variant">12%</div>
+        </div>
+    </div>
+</div>
+    `,
+    'analytics': `
+<div class="w-full p-xl flex flex-col gap-xl">
+    <div class="flex items-end justify-between">
+        <div class="flex flex-col gap-xs">
+            <h1 class="font-display-lg text-display-lg text-on-surface">Analytics Deep-Dive</h1>
+            <p class="font-body-base text-body-base text-on-surface-variant">Real-time telemetry and historical insights across the sensor network.</p>
+        </div>
+        <div class="flex items-center gap-sm">
+            <button class="px-md py-sm rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm flex items-center gap-xs border border-outline-variant"><span class="material-symbols-outlined text-[18px]">calendar_today</span>Last 30 Days</button>
+            <button class="px-md py-sm rounded-lg bg-primary-container text-on-primary-container font-body-sm text-body-sm font-medium flex items-center gap-xs hover:opacity-90"><span class="material-symbols-outlined text-[18px]">download</span>Export</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between mb-sm"><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Total Volume</span><div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">package_2</span></div></div>
+            <div class="flex items-baseline gap-sm"><span class="font-data-lg text-data-lg text-primary tracking-tight">1.24</span><span class="font-body-sm text-body-sm text-on-surface-variant">MT</span></div>
+            <div class="flex items-center gap-xs mt-xs text-primary"><span class="material-symbols-outlined text-[16px]">trending_up</span><span class="font-body-sm text-body-sm">+4.2% from last month</span></div>
+        </div>
+        <div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between mb-sm"><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Active Sensors</span><div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">sensors</span></div></div>
+            <div class="flex items-baseline gap-sm"><span class="font-data-lg text-data-lg text-on-surface tracking-tight">8,402</span><span class="font-body-sm text-body-sm text-on-surface-variant">/ 8,500</span></div>
+            <div class="w-full h-2 bg-surface-container mt-xs rounded-full"><div class="h-full bg-primary w-[98%] rounded-full"></div></div>
+        </div>
+        <div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between mb-sm"><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">System Efficiency</span><div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">speed</span></div></div>
+            <div class="flex items-baseline gap-sm"><span class="font-data-lg text-data-lg text-on-surface tracking-tight">88%</span></div>
+            <div class="flex items-center gap-xs mt-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">check_circle</span><span class="font-body-sm text-body-sm">Optimal routing sustained</span></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg h-full">
+        <div class="lg:col-span-2 bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-md relative overflow-hidden min-h-[400px]">
+            <div class="flex items-center justify-between z-10 relative"><h2 class="font-headline-md text-headline-md text-on-surface">Weekly Collection Volume</h2></div>
+            <div class="flex-1 w-full mt-md relative flex items-end pt-xl">
+                <svg class="w-full h-[250px] overflow-visible absolute bottom-8 left-12 right-0" preserveAspectRatio="none" viewBox="0 0 800 250">
+                    <defs><linearGradient id="areaGradient" x1="0%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.3"></stop><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.0"></stop></linearGradient></defs>
+                    <path d="M0,250 L0,150 C100,180 200,80 300,120 C400,160 500,40 600,90 C700,140 750,60 800,20 L800,250 Z" fill="url(#areaGradient)"></path>
+                    <path d="M0,150 C100,180 200,80 300,120 C400,160 500,40 600,90 C700,140 750,60 800,20" fill="none" stroke="#0ea5e9" stroke-linecap="round" stroke-width="3"></path>
+                    <circle cx="200" cy="80" fill="#ffffff" r="4" stroke="#0ea5e9" stroke-width="2"></circle><circle cx="500" cy="40" fill="#ffffff" r="4" stroke="#0ea5e9" stroke-width="2"></circle><circle cx="800" cy="20" fill="#ffffff" r="4" stroke="#0ea5e9" stroke-width="2"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="lg:col-span-1 bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-md">
+            <h2 class="font-headline-md text-headline-md text-on-surface">Fill Level</h2>
+            <div class="flex flex-col gap-lg flex-1 justify-center">
+                <div class="flex flex-col gap-xs"><div class="flex justify-between items-baseline"><span class="font-body-sm text-on-surface font-medium">Critical (>90%)</span><span class="font-data-point text-error">420</span></div><div class="w-full h-3 bg-surface-container rounded-full"><div class="h-full bg-error w-[15%] rounded-full"></div></div></div>
+                <div class="flex flex-col gap-xs"><div class="flex justify-between items-baseline"><span class="font-body-sm text-on-surface font-medium">High (70-90%)</span><span class="font-data-point text-tertiary">2,150</span></div><div class="w-full h-3 bg-surface-container rounded-full"><div class="h-full bg-tertiary w-[45%] rounded-full"></div></div></div>
+                <div class="flex flex-col gap-xs"><div class="flex justify-between items-baseline"><span class="font-body-sm text-on-surface font-medium">Medium (30-70%)</span><span class="font-data-point text-primary">3,800</span></div><div class="w-full h-3 bg-surface-container rounded-full"><div class="h-full bg-primary w-[75%] rounded-full"></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+    `,
+    'bin-management': `
+<div class="p-lg bg-surface-lowest min-h-full">
+    <div class="flex justify-between items-end mb-xl">
+        <div><h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Active Bins</h2><p class="font-body-sm text-body-sm text-on-surface-variant">Manage and monitor real-time fill capacities.</p></div>
+        <button class="bg-surface-container-low text-on-surface px-md py-sm rounded-lg border border-outline-variant flex items-center gap-xs"><span class="material-symbols-outlined text-xl">filter_list</span>Filter</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+        <div class="bg-surface rounded-xl border border-outline-variant p-lg hover:shadow-sm">
+            <div class="flex justify-between items-start mb-md"><div><span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-sm">Recyclable</span><h3 class="font-data-lg text-data-lg text-on-surface">BIN-A01</h3><p class="font-body-sm mt-xs text-on-surface-variant">Sector 4, North Plaza</p></div><span class="material-symbols-outlined">more_vert</span></div>
+            <div class="mt-lg"><div class="flex justify-between mb-xs"><span class="font-body-sm">Capacity Fill Level</span><span class="font-data-point text-primary">65%</span></div><div class="h-2 w-full bg-surface-container-low rounded-full"><div class="h-full bg-primary-container rounded-full" style="width: 65%;"></div></div></div>
+            <div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md"><div class="flex items-center gap-xs text-outline"><span class="material-symbols-outlined text-sm">schedule</span><span class="font-body-sm">Last Notified: 2h ago</span></div><button class="bg-surface-container-low px-sm py-xs rounded-lg border border-outline-variant text-sm">Notify Collector</button></div>
+        </div>
+        <div class="bg-surface rounded-xl border border-error-container p-lg shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+            <div class="flex justify-between items-start mb-md"><div><span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps mb-sm">General Waste</span><h3 class="font-data-lg text-data-lg text-on-surface">BIN-A02</h3><p class="font-body-sm mt-xs text-on-surface-variant">Sector 1, Main Entrance</p></div><span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span></div>
+            <div class="mt-lg"><div class="flex justify-between mb-xs"><span class="font-body-sm">Capacity Fill Level</span><span class="font-data-point text-error">92%</span></div><div class="h-2 w-full bg-error-container rounded-full"><div class="h-full bg-error rounded-full" style="width: 92%;"></div></div></div>
+            <div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md"><div class="flex items-center gap-xs text-error"><span class="material-symbols-outlined text-sm">schedule</span><span class="font-body-sm">Last Notified: 10m ago</span></div><button class="bg-primary-container text-white px-sm py-xs rounded-lg text-sm">Notify Collector</button></div>
+        </div>
+        <div class="bg-surface rounded-xl border border-outline-variant p-lg hover:shadow-sm">
+            <div class="flex justify-between items-start mb-md"><div><span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-sm">Recyclable</span><h3 class="font-data-lg text-data-lg text-on-surface">BIN-C09</h3><p class="font-body-sm mt-xs text-on-surface-variant">Sector 2, Cafeteria</p></div><span class="material-symbols-outlined">more_vert</span></div>
+            <div class="mt-lg"><div class="flex justify-between mb-xs"><span class="font-body-sm">Capacity Fill Level</span><span class="font-data-point text-primary">85%</span></div><div class="h-2 w-full bg-surface-container-low rounded-full"><div class="h-full bg-primary-container rounded-full" style="width: 85%;"></div></div></div>
+            <div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md"><div class="flex items-center gap-xs text-outline"><span class="material-symbols-outlined text-sm">schedule</span><span class="font-body-sm">Last Notified: 4h ago</span></div><button class="bg-primary-container text-white px-sm py-xs rounded-lg text-sm">Notify Collector</button></div>
+        </div>
+    </div>
+</div>
+    `,
+    'community-reports': `
+<div class="p-md md:p-container-margin max-w-6xl mx-auto h-full">
+    <div class="flex justify-between items-end mb-xl">
+        <div><h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Community Reports</h2><p class="font-body-sm text-on-surface-variant">Review and manage issue submissions from public citizens and field operators.</p></div>
+        <button class="px-md py-sm bg-surface rounded-lg border border-outline-variant flex items-center gap-sm"><span class="material-symbols-outlined text-[18px]">filter_list</span>Filter</button>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+        <div class="lg:col-span-4 flex flex-col gap-lg">
+            <div class="bg-surface rounded-[16px] border border-outline-variant p-lg shadow-sm">
+                <h3 class="font-headline-md mb-md">Submit a Report</h3>
+                <form class="flex flex-col gap-md">
+                    <div><label class="block font-label-caps mb-xs">Issue Type</label><select class="w-full bg-surface border border-outline-variant rounded-lg p-sm"><option>Overflowing Container</option><option>Hardware Damage</option></select></div>
+                    <div><label class="block font-label-caps mb-xs">Location</label><input class="w-full bg-surface border border-outline-variant rounded-lg p-sm" placeholder="e.g. BIN-492" type="text"/></div>
+                    <div><label class="block font-label-caps mb-xs">Description</label><textarea class="w-full bg-surface border border-outline-variant rounded-lg p-sm" rows="3"></textarea></div>
+                    <button class="mt-sm w-full bg-[#0EA5E9] text-white py-sm rounded-lg" type="button">Submit Report</button>
+                </form>
+            </div>
+            <div class="bg-primary-container rounded-[16px] p-lg shadow-sm text-on-primary">
+                <div class="flex items-center justify-between mb-sm"><span class="font-label-caps opacity-80">Community Engagement</span><span class="material-symbols-outlined">forum</span></div>
+                <div class="font-data-lg mb-xs">142</div><div class="font-body-sm opacity-90">Reports resolved this week</div>
+            </div>
+        </div>
+        <div class="lg:col-span-8 flex flex-col gap-md">
+            <div class="flex justify-between items-center px-sm"><h3 class="font-body-base font-medium">Recent Feed</h3><span class="font-label-caps text-on-surface-variant">Live Updates</span></div>
+            <div class="bg-surface rounded-[16px] border border-outline-variant p-md shadow-sm">
+                <div class="flex items-start gap-md">
+                    <div class="w-12 h-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center"><span class="material-symbols-outlined">delete_sweep</span></div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-xs"><h4 class="font-body-base font-medium">Overflowing Container</h4><span class="px-2 py-1 rounded-full bg-surface-container-high text-[10px]">Pending</span></div>
+                        <div class="flex items-center gap-xs font-body-sm text-on-surface-variant mb-sm"><span class="material-symbols-outlined text-[16px]">location_on</span><span>BIN-882 • North Park Sector</span></div>
+                        <p class="font-body-sm mb-md">Sensor reads normal but citizen report shows debris surrounding the base of the container. Requires manual cleanup.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface rounded-[16px] border border-outline-variant p-md shadow-sm">
+                <div class="flex items-start gap-md">
+                    <div class="w-12 h-12 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center"><span class="material-symbols-outlined">build</span></div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-xs"><h4 class="font-body-base font-medium">Hardware Damage</h4><span class="px-2 py-1 rounded-full bg-secondary-container text-[10px]">In Progress</span></div>
+                        <div class="flex items-center gap-xs font-body-sm text-on-surface-variant mb-sm"><span class="material-symbols-outlined text-[16px]">location_on</span><span>BIN-401 • Downtown Transit Station</span></div>
+                        <p class="font-body-sm">Solar panel enclosure appears cracked. Sensor is still transmitting but power levels are dropping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    `,
+    'about': `
+<div class="p-xl max-w-7xl mx-auto h-full">
+    <section class="mb-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+            <div>
+                <span class="font-label-caps text-primary tracking-widest mb-sm block uppercase">The Mission</span>
+                <h2 class="font-display-lg mb-md">Engineering the Future of Urban Ecology</h2>
+                <p class="font-body-base text-on-surface-variant max-w-2xl leading-relaxed">Waste OS is a next-generation IoT platform designed to transform urban waste management into a high-precision digital ecosystem. By bridging the gap between physical infrastructure and real-time data, we empower cities to eliminate inefficiencies, reduce carbon footprints, and create cleaner, smarter living environments for everyone.</p>
+            </div>
+        </div>
+    </section>
+    <section class="mb-xl">
+        <h3 class="font-headline-md mb-lg">Core Capabilities</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            <div class="p-lg rounded-xl bento-card flex flex-col gap-md"><div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_heart</span></div><h4 class="font-headline-md">Live Monitoring</h4><p class="font-body-sm text-on-surface-variant">Persistent 24/7 oversight of every disposal unit in your network with sub-second latency updates.</p></div>
+            <div class="p-lg rounded-xl bento-card flex flex-col gap-md bg-surface-container-low"><div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-white"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span></div><h4 class="font-headline-md">Fleet Analytics</h4><p class="font-body-sm text-on-surface-variant">Advanced route optimization and fuel consumption analysis to reduce operational costs by up to 35%.</p></div>
+            <div class="p-lg rounded-xl bento-card flex flex-col gap-md"><div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">record_voice_over</span></div><h4 class="font-headline-md">Community Reporting</h4><p class="font-body-sm text-on-surface-variant">A decentralized reporting interface allowing citizens to contribute to urban cleanliness directly.</p></div>
+        </div>
+    </section>
+</div>
+    `,
+    'settings': `
+<div class="px-md md:px-xl py-xl flex-1 max-w-7xl mx-auto w-full flex flex-col gap-xl">
+    <div><h2 class="font-display-lg mb-sm">System Settings</h2><p class="font-body-base text-on-surface-variant">Manage platform configurations, API integrations, and notification preferences.</p></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+        <section class="lg:col-span-4 flex flex-col gap-lg">
+            <div class="glass-card rounded-xl p-lg shadow-sm">
+                <div class="flex items-center justify-between mb-lg"><h3 class="font-headline-md">Admin Profile</h3></div>
+                <div class="flex flex-col items-center mb-lg">
+                    <div class="w-24 h-24 rounded-full bg-surface-container-low flex items-center justify-center text-primary font-display-lg text-4xl mb-md">D</div>
+                    <h4 class="font-body-base font-semibold" id="setting-name">Admin User</h4><p class="font-body-sm text-on-surface-variant" id="setting-role">System Admin</p>
+                </div>
+                <div class="space-y-md">
+                    <div><label class="block font-label-caps text-on-surface-variant uppercase mb-xs">Email Address</label><p class="font-data-point" id="setting-email">admin@wasteos.com</p></div>
+                    <div><label class="block font-label-caps text-on-surface-variant uppercase mb-xs">Phone Number</label><p class="font-data-point">+1 (555) 019-8273</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="lg:col-span-8 flex flex-col gap-lg">
+            <div class="glass-card rounded-xl p-lg shadow-sm">
+                <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md"><span class="material-symbols-outlined text-primary">dns</span><h3 class="font-headline-md">Platform Configuration</h3></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                    <div class="bg-surface border border-outline-variant rounded-lg p-md">
+                        <div class="flex justify-between items-center mb-md"><label class="font-body-base font-medium">ESP32 Polling Rate</label><span class="font-data-point bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded">5 min</span></div>
+                        <input class="w-full appearance-none bg-transparent focus:outline-none" max="60" min="1" type="range" value="5"/>
+                    </div>
+                    <div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col justify-between">
+                        <div><h4 class="font-body-base font-medium mb-xs">Active API Keys</h4><div class="flex items-center justify-between bg-surface-container-low p-sm rounded border border-outline-variant mb-sm"><code class="font-data-point text-sm truncate">sk_live_8f92...a1b2</code></div></div>
+                        <button class="w-full mt-auto py-sm px-md bg-surface-container-low border border-outline-variant rounded-lg">Generate New Key</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-lg shadow-sm">
+                <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md"><span class="material-symbols-outlined text-primary">notifications_active</span><h3 class="font-headline-md">Notification Preferences</h3></div>
+                <div class="space-y-md">
+                    <div class="flex items-start justify-between p-md border border-outline-variant rounded-lg bg-surface">
+                        <div><h4 class="font-body-base font-medium">Critical Bin Overflow Alerts</h4><div class="flex gap-sm mt-sm"><span class="bg-error-container text-on-error-container font-label-caps px-sm py-xs rounded-full">SMS</span><span class="bg-primary-fixed text-on-primary-fixed font-label-caps px-sm py-xs rounded-full">Email</span></div></div>
+                        <input checked="" class="toggle-checkbox w-6 h-6 rounded-full cursor-pointer" type="checkbox"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+    `
+};

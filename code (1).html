@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dee3e9",
+                        "surface-bright": "#f6faff",
+                        "on-background": "#171c20",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container-low": "#f0f4fa",
+                        "primary-fixed": "#c9e6ff",
+                        "inverse-on-surface": "#edf1f7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#003751",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed": "#0b1c30",
+                        "inverse-surface": "#2c3135",
+                        "outline-variant": "#bec8d2",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0ea5e9",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#89ceff",
+                        "inverse-primary": "#89ceff",
+                        "on-tertiary-container": "#4d2b00",
+                        "on-surface": "#171c20",
+                        "surface": "#f6faff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "secondary": "#505f76",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "tertiary": "#8a5100",
+                        "surface-container-highest": "#dee3e9",
+                        "surface-container": "#eaeef4",
+                        "on-primary-fixed": "#001e2f",
+                        "surface-dim": "#d6dae0",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f6faff",
+                        "on-secondary-container": "#54647a",
+                        "outline": "#6e7881",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary-container": "#de8712",
+                        "surface-container-high": "#e4e8ee",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "tertiary-fixed": "#ffdcbd",
+                        "primary": "#006591",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#006591",
+                        "on-surface-variant": "#3e4850",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "xl": "48px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "container-margin": "32px",
+                        "xs": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-base": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "data-point": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-base": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "data-point": ["15px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "data-lg": ["28px", {"lineHeight": "1", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #ffffff;
+            color: #171c20;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0px 4px 12px rgba(30, 41, 59, 0.05);
+            transition: border-color 0.2s ease;
+        }
+        .bento-card:hover {
+            border-color: #0EA5E9;
+        }
+    </style>
+</head>
+<body class="font-body-base text-body-base bg-surface">
+<!-- SideNavBar -->
+<aside class="fixed h-full w-64 left-0 top-0 bg-surface border-r border-outline-variant flex flex-col gap-md p-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-display-lg text-display-lg text-primary font-bold">Waste OS</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">IoT Logistics</p>
+</div>
+<nav class="flex flex-col gap-sm flex-grow">
+<div class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-body-base">Live Monitor</span>
+</div>
+<div class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-base">Analytics</span>
+</div>
+<div class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+<span class="font-body-base">Bin Management</span>
+</div>
+<div class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">report</span>
+<span class="font-body-base">Community Reports</span>
+</div>
+<div class="flex items-center gap-md p-md rounded-xl text-primary font-bold border-r-2 border-primary bg-surface-container-low cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">info</span>
+<span class="font-body-base">About</span>
+</div>
+<div class="mt-auto flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-base">System Settings</span>
+</div>
+</nav>
+<!-- Version Footer -->
+<div class="px-md py-sm border-t border-outline-variant mt-md">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-data-point text-data-point text-on-surface-variant">v2.4.0 Online</span>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface border-b border-outline-variant px-lg flex justify-between items-center z-40">
+<div class="flex items-center bg-surface-container-low px-md py-xs rounded-full w-96">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full" placeholder="Search infrastructure..." type="text"/>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative cursor-pointer hover:bg-surface-container-high p-sm rounded-full transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></div>
+</div>
+<div class="flex items-center gap-sm cursor-pointer">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A clean, professional portrait of a tech professional in a bright, modern office setting. The individual is wearing a crisp white shirt, looking forward with a confident and helpful expression. The background is softly blurred with hints of light blue and white architectural elements, reflecting a high-clarity and optimistic industrial-tech brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgbjNXh0esGPkNPwTtl8Hp1FZsoPwrj2Mg-EniOo2_-B1rpMRZB8d73CEGHxjMp55CiNuvJ_qmxqKEbRQ9yVfYN3rEeBvDCtk_LIWgfSTOBuBUQ82H4a0MxsnUWA04NnW0888y8q7g8aPvWcOYaH585Kx7Lzcp14-fiKEenXhFmEp27Q2jfEMBYB3j-WNN2FC1YtjS_Zgijq4liCFDUqm2uwYH7hwjlr4GmeOjr2oEqcUistuvGEn74tRqmSoMRGVN5zDJUqpk0V2V"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-white">
+<div class="p-xl max-w-7xl mx-auto">
+<!-- Hero Section / Mission -->
+<section class="mb-xl">
+<div class="grid grid-cols-12 gap-lg items-center">
+<div class="col-span-12 md:col-span-7">
+<span class="font-label-caps text-label-caps text-primary tracking-widest mb-sm block uppercase">The Mission</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-md">Engineering the Future of Urban Ecology</h2>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl leading-relaxed">
+                            Waste OS is a next-generation IoT platform designed to transform urban waste management into a high-precision digital ecosystem. By bridging the gap between physical infrastructure and real-time data, we empower cities to eliminate inefficiencies, reduce carbon footprints, and create cleaner, smarter living environments for everyone.
+                        </p>
+</div>
+<div class="col-span-12 md:col-span-5">
+<div class="aspect-video rounded-xl overflow-hidden bento-card">
+<img alt="Smart City Visualization" class="w-full h-full object-cover" data-alt="A futuristic cityscape at dusk, showcasing clean architectural lines and integrated technology. Glowing blue light paths represent data flowing through the streets. The scene is illuminated by soft, cool white and light sky-blue lighting, conveying a sense of transparency and forward-thinking urban waste management efficiency in a minimalist digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCepbZnqzgQwMvEzF4LtQcevGXGKkwlP5I-qDAIoTPSqkc0-Dndm6dyP2Sx15V6YIK0sdDG6DYYwI-jCZkFQ8Y_G20o1uUaE2FeKgzw2giNg6avStTiWk80q1ReBRifMjH-EH-RpD-uwJ0Yu0Bf7DWqWZqi6xZrs7XltwNrp_DfQZWHEceghwMfz7L3A3p3rVeUr_xtDZ_h3iuVQ1NjtO69MENsRR9pL8a1Mno2XYdknlyh6zwqGDLa-7dlWbLet40F-Z25_ZyQUyhZ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features - Bento Grid -->
+<section class="mb-xl">
+<h3 class="font-headline-md text-headline-md mb-lg">Core Capabilities</h3>
+<div class="grid grid-cols-12 gap-lg">
+<!-- Feature 1 -->
+<div class="col-span-12 md:col-span-4 p-lg rounded-xl bento-card flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Live Monitoring</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Persistent 24/7 oversight of every disposal unit in your network with sub-second latency updates.</p>
+</div>
+<!-- Feature 2 -->
+<div class="col-span-12 md:col-span-4 p-lg rounded-xl bento-card flex flex-col gap-md border-primary/20 bg-surface-container-low">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Fleet Analytics</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Advanced route optimization and fuel consumption analysis to reduce operational costs by up to 35%.</p>
+</div>
+<!-- Feature 3 -->
+<div class="col-span-12 md:col-span-4 p-lg rounded-xl bento-card flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Community Reporting</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A decentralized reporting interface allowing citizens to contribute to urban cleanliness directly.</p>
+</div>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section class="mb-xl">
+<div class="rounded-xl p-xl bg-surface-container-lowest border border-outline-variant">
+<div class="flex flex-col md:flex-row gap-xl">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-md">Technology Stack</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mb-lg">Our architecture is built for industrial-grade resilience and rapid scalability, ensuring data integrity from the edge to the cloud.</p>
+<div class="space-y-md">
+<div class="flex items-start gap-md">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">terminal</span></div>
+<div>
+<h5 class="font-body-base font-bold text-on-surface">ESP32 Integration</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Edge computing nodes leveraging ultra-low power consumption for long-term field deployment.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">bolt</span></div>
+<div>
+<h5 class="font-body-base font-bold text-on-surface">Real-Time Telemetry</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-frequency MQTT protocols for instantaneous bin level and hazardous waste detection.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="mt-1"><span class="material-symbols-outlined text-primary">query_stats</span></div>
+<div>
+<h5 class="font-body-base font-bold text-on-surface">Advanced Analytics</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Predictive modeling engines that forecast bin overflow before it happens.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-xl p-lg flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<img alt="Hardware Stack" class="w-full h-full object-cover" data-alt="A macro photograph of high-tech circuit boards and microchips with blue glowing traces. The lighting is bright and clean, emphasizing precision and industrial-tech sophistication. The composition is minimalist and focuses on the intricate details of the electronic components, reflecting a high-quality hardware integration theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeL_k5okZ0KidACVz8tRWXGaBjhd71kkoVRRQkj_a0lutnyGU1Xl52KkJKYgwh0h5P0k5v5_MOyKkxhH7iOtzWPvJu8uRnEHFxEPGqh3is7sEgX2dzBG9mFcC8J-lgeITArgCxiSbAuG5l7XjGxQgh4OcYCVLCAgWzw2QdZiqR3f6FFGC76wlOJBcwtkxSdOOqEbRDaHhicRLK4PTUmXyu1DEBGcPvBjA2Xkt71VUqTIerh6FJL7EphA_wl-Byq7O-08ofIhIf5dhA"/>
+</div>
+<div class="relative z-10 text-center">
+<span class="font-data-lg text-data-lg text-primary block mb-xs">99.9%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Uptime Reliability</span>
+<div class="mt-lg flex justify-center gap-md">
+<div class="px-md py-xs bg-white rounded-full border border-outline-variant font-data-point text-data-point">Wi-Fi / LoRa</div>
+<div class="px-md py-xs bg-white rounded-full border border-outline-variant font-data-point text-data-point">TLS 1.3</div>
+<div class="px-md py-xs bg-white rounded-full border border-outline-variant font-data-point text-data-point">OTA Updates</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Status Footer -->
+<footer class="mt-xl py-lg border-t border-outline-variant flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-md">
+<span class="font-body-sm text-body-sm">© 2024 Waste OS Logistics</span>
+<span class="text-outline-variant">•</span>
+<a class="font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span class="text-outline-variant">•</span>
+<a class="font-body-sm text-body-sm hover:text-primary transition-colors" href="#">API Documentation</a>
+</div>
+<div class="flex items-center gap-sm font-data-point text-data-point text-primary bg-primary-fixed px-md py-sm rounded-lg">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                    SYSTEMS SECURE
+                </div>
+</footer>
+</div>
+</main>
+</body></html>

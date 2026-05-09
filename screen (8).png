@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waste OS - Bin Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#dee3e9",
+                        "tertiary": "#8a5100",
+                        "surface-container": "#eaeef4",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "secondary": "#505f76",
+                        "on-primary-fixed": "#001e2f",
+                        "on-tertiary-container": "#4d2b00",
+                        "on-surface": "#171c20",
+                        "inverse-primary": "#89ceff",
+                        "primary-fixed-dim": "#89ceff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface": "#f6faff",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-container": "#54647a",
+                        "background": "#f6faff",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d6dae0",
+                        "outline": "#6e7881",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "tertiary-fixed": "#ffdcbd",
+                        "surface-container-high": "#e4e8ee",
+                        "tertiary-container": "#de8712",
+                        "surface-tint": "#006591",
+                        "on-surface-variant": "#3e4850",
+                        "on-primary": "#ffffff",
+                        "primary": "#006591",
+                        "error": "#ba1a1a",
+                        "on-background": "#171c20",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-variant": "#dee3e9",
+                        "surface-bright": "#f6faff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#003751",
+                        "inverse-on-surface": "#edf1f7",
+                        "primary-fixed": "#c9e6ff",
+                        "inverse-surface": "#2c3135",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container-low": "#f0f4fa",
+                        "primary-container": "#0ea5e9",
+                        "outline-variant": "#bec8d2",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2c1600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "xl": "48px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "container-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-base": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "data-point": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-base": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "data-point": ["15px", { "lineHeight": "1", "fontWeight": "500" }],
+                        "data-lg": ["28px", { "lineHeight": "1", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-base text-body-base min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface fixed top-0 right-0 w-[calc(100%-16rem)] z-50 border-b border-outline-variant flex justify-between items-center h-16 px-lg">
+<div class="flex items-center gap-md">
+<h1 class="font-display-lg text-display-lg text-primary font-bold">Waste OS</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a confident tech manager in a bright, modern office setting. The lighting is soft and natural, casting subtle highlights. The overall tone aligns with a modern, clean corporate aesthetic, utilizing light colors to convey transparency and efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeEocE8x5vidQYH1BOJcWfenvKeIZ8_QcLtVYE9SDVS7B94_1kX-HVqTlHbLe2vUj5LkJDoNDkpKstdbRR6w0sPO2rfvDVpNugV1XqSOHRp4gJ7ANX6RLuMzscIQFobgi6he7KAVWR9VRwb8wSOgE41ZYWmnYf1078aWMjVsV0DMSE2v-8JX2pz9hIFocKp-63vO7GGwE757RnJ8kILH31eEhwG-bynOtQ2CDRbMXUByNRx0cNPFiIhjHIFUkwzPc3l35JPj-0ej6F"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface fixed h-full w-64 left-0 top-0 border-r border-outline-variant flex flex-col gap-md p-md z-40">
+<div class="px-md py-lg mb-4">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl">delete_sweep</span>
+<div>
+<div class="font-display-lg text-display-lg text-primary font-bold leading-none">Waste OS</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-1">IoT Logistics</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95 font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">sensors</span>
+                Live Monitor
+            </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95 font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-surface-container-low hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95 font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+                Bin Management
+            </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95 font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">report</span>
+                Community Reports
+            </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95 font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">settings</span>
+                System Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-lg bg-surface-lowest min-h-[calc(100vh-4rem)]">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Active Bins</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage and monitor real-time fill capacities.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-low text-on-surface px-md py-sm rounded-lg border border-outline-variant hover:bg-surface-container transition-colors flex items-center gap-xs font-body-base text-body-base">
+<span class="material-symbols-outlined text-xl">filter_list</span>
+                    Filter
+                </button>
+</div>
+</div>
+<!-- Bento Grid for Bin Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Card 1: Normal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-sm">Recyclable</span>
+<h3 class="font-data-lg text-data-lg text-on-surface">BIN-A01</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Sector 4, North Plaza</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Capacity Fill Level</span>
+<span class="font-data-point text-data-point text-primary">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last Notified: 2h ago</span>
+</div>
+<button class="bg-surface-container-low text-on-surface px-sm py-xs rounded-lg hover:bg-surface-container transition-colors font-body-sm text-body-sm border border-outline-variant">
+                        Notify Collector
+                    </button>
+</div>
+</div>
+<!-- Card 2: Critical -->
+<div class="bg-surface-container-lowest rounded-xl border border-error-container hover:border-error transition-colors p-lg shadow-[0px_4px_12px_rgba(30,41,59,0.05)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps mb-sm">General Waste</span>
+<h3 class="font-data-lg text-data-lg text-on-surface">BIN-A02</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Sector 1, Main Entrance</p>
+</div>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Capacity Fill Level</span>
+<span class="font-data-point text-data-point text-error">92%</span>
+</div>
+<div class="h-2 w-full bg-error-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs text-error">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm">Last Notified: 10m ago</span>
+</div>
+<button class="bg-primary-container text-white px-sm py-xs rounded-lg hover:bg-primary transition-colors font-body-sm text-body-sm focus:ring-2 focus:ring-offset-2 focus:ring-inverse-primary">
+                        Notify Collector
+                    </button>
+</div>
+</div>
+<!-- Card 3: Normal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-sm">Hazardous</span>
+<h3 class="font-data-lg text-data-lg text-on-surface">BIN-B14</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Sector 7, Lab Block</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Capacity Fill Level</span>
+<span class="font-data-point text-data-point text-primary">30%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last Notified: 1d ago</span>
+</div>
+<button class="bg-surface-container-low text-on-surface px-sm py-xs rounded-lg hover:bg-surface-container transition-colors font-body-sm text-body-sm border border-outline-variant">
+                        Notify Collector
+                    </button>
+</div>
+</div>
+<!-- Card 4: Normal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-sm">Recyclable</span>
+<h3 class="font-data-lg text-data-lg text-on-surface">BIN-C09</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Sector 2, Cafeteria</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Capacity Fill Level</span>
+<span class="font-data-point text-data-point text-primary">85%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last Notified: 4h ago</span>
+</div>
+<button class="bg-primary-container text-white px-sm py-xs rounded-lg hover:bg-primary transition-colors font-body-sm text-body-sm focus:ring-2 focus:ring-offset-2 focus:ring-inverse-primary">
+                        Notify Collector
+                    </button>
+</div>
+</div>
+<!-- Card 5: Empty/Low -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow opacity-80">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps mb-sm">General Waste</span>
+<h3 class="font-data-lg text-data-lg text-on-surface">BIN-A11</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Sector 5, East Wing</p>
+</div>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Capacity Fill Level</span>
+<span class="font-data-point text-data-point text-primary">5%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 5%;"></div>
+</div>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-surface-container-high pt-md">
+<div class="flex items-center gap-xs text-outline">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last Notified: 3d ago</span>
+</div>
+<button class="bg-surface-container-low text-outline px-sm py-xs rounded-lg font-body-sm text-body-sm border border-outline-variant cursor-not-allowed" disabled="">
+                        Notify Collector
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,89 @@
+// Auth & Routing Logic
+let currentUser = JSON.parse(localStorage.getItem('wasteOsUser') || 'null');
+
+function switchLoginTab(tab) {
+    const emailBtn = document.getElementById('tab-email');
+    const phoneBtn = document.getElementById('tab-phone');
+    const emailFields = document.getElementById('email-fields');
+    const phoneFields = document.getElementById('phone-fields');
+    if (tab === 'email') {
+        emailBtn.className = 'flex-1 py-sm px-md rounded-lg font-body-sm font-medium transition-all bg-surface-container-lowest text-primary shadow-sm';
+        phoneBtn.className = 'flex-1 py-sm px-md rounded-lg font-body-sm font-medium transition-all text-on-surface-variant hover:text-on-surface';
+        emailFields.classList.remove('hidden'); phoneFields.classList.add('hidden');
+    } else {
+        phoneBtn.className = 'flex-1 py-sm px-md rounded-lg font-body-sm font-medium transition-all bg-surface-container-lowest text-primary shadow-sm';
+        emailBtn.className = 'flex-1 py-sm px-md rounded-lg font-body-sm font-medium transition-all text-on-surface-variant hover:text-on-surface';
+        phoneFields.classList.remove('hidden'); emailFields.classList.add('hidden');
+    }
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('email')?.value || '';
+    const phone = document.getElementById('phone')?.value || '';
+    const identifier = email || phone || 'admin@wasteos.com';
+    const name = email ? email.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()) : 'Operator';
+    currentUser = { name, email: identifier, role: 'City Operations', loginMethod: email ? 'email' : 'phone' };
+    localStorage.setItem('wasteOsUser', JSON.stringify(currentUser));
+    enterApp();
+}
+
+function handleGoogleLogin() {
+    currentUser = { name: 'Google User', email: 'user@gmail.com', role: 'City Operations', loginMethod: 'google' };
+    localStorage.setItem('wasteOsUser', JSON.stringify(currentUser));
+    enterApp();
+}
+
+function handleLogout() {
+    currentUser = null;
+    localStorage.removeItem('wasteOsUser');
+    document.getElementById('app-shell').classList.add('hidden');
+    document.getElementById('page-login').classList.add('active');
+    document.getElementById('page-login').style.display = '';
+    window.location.hash = '';
+}
+
+function enterApp() {
+    document.getElementById('page-login').classList.remove('active');
+    document.getElementById('page-login').style.display = 'none';
+    document.getElementById('app-shell').classList.remove('hidden');
+    document.getElementById('app-shell').classList.add('flex');
+    if (currentUser) {
+        document.getElementById('user-name').textContent = currentUser.name;
+        document.getElementById('user-role').textContent = currentUser.role;
+        document.getElementById('user-avatar').textContent = currentUser.name.charAt(0).toUpperCase();
+    }
+    const hash = window.location.hash.replace('#','') || 'live-monitor';
+    navigate(hash);
+}
+
+function navigate(page) {
+    window.location.hash = page;
+    const content = document.getElementById('main-content');
+    // Update nav
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.dataset.page === page) {
+            link.className = 'nav-link flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-surface-container-low cursor-pointer active:scale-95';
+            link.querySelector('.material-symbols-outlined')?.setAttribute('style',"font-variation-settings: 'FILL' 1;");
+        } else {
+            link.className = 'nav-link flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:scale-95';
+            link.querySelector('.material-symbols-outlined')?.removeAttribute('style');
+        }
+    });
+    // Load page
+    if (typeof PAGE_CONTENT !== 'undefined' && PAGE_CONTENT[page]) {
+        content.innerHTML = PAGE_CONTENT[page];
+        content.classList.add('fade-in');
+        setTimeout(() => content.classList.remove('fade-in'), 300);
+    } else {
+        content.innerHTML = '<div class="p-xl text-center text-on-surface-variant">Page not found</div>';
+    }
+}
+
+// Init on load
+window.addEventListener('DOMContentLoaded', () => {
+    if (currentUser) { enterApp(); }
+});
+window.addEventListener('hashchange', () => {
+    if (currentUser) { const h = window.location.hash.replace('#',''); if(h) navigate(h); }
+});
